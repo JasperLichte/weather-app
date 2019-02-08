@@ -1,8 +1,8 @@
 import React from 'react';
-import WeatherApi from './../Api/WeatherApi';
+import WeatherApi from '../Api/WeatherApi';
 
 export default props => {
-  const { name: locationName, weather, sys: { country } } = props.data;
+  const {data: { name: locationName, weather, sys: { country } } } = props;  
 
   return (
     <main

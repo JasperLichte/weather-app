@@ -8,13 +8,9 @@ export default _ => {
   if (!weatherData) {
     (async _ => {
       const weatherApi = new WeatherApi();
-      const position = await getGeoLocation();      
-      const weatherData = await weatherApi.makeCall({
-        lon: position.coords.longitude,
-        lat: position.coords.latitude,
-      });
-      setWeatherData(weatherData)
-
+      const position = await getGeoLocation();
+      const weatherData = await weatherApi.makeCall(position);
+      setWeatherData(weatherData);
     })();
   }  
 
@@ -31,6 +27,11 @@ const getGeoLocation = _ => {
       resolve({});
       return;
     }
-    navigator.geolocation.getCurrentPosition(resolve);
+    navigator.geolocation.getCurrentPosition(pos => {
+      resolve({
+        lon: pos.coords.longitude,
+        lat: pos.coords.latitude,
+      });
+    });
   });
 };
