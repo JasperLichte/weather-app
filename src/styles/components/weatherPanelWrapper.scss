@@ -1,8 +1,9 @@
-.weatherPanel {
+.weatherPanelWrapper {
   background-color: #222;
-  padding: 1rem;
   height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@import './currentWeatherPanel.scss';

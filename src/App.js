@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import WeatherApi from './Api/WeatherApi';
-import WeatherPanel from './components/WeatherPanel';
+import WeatherPanelWrapper from './components/WeatherPanelWrapper';
 
 export default _ => {
   const [weatherData, setWeatherData] = useState(null);
@@ -16,7 +16,8 @@ export default _ => {
 
   return (
     <>
-      { weatherData && weatherData.cod === 200 && <WeatherPanel data={weatherData} /> }
+      { weatherData && weatherData.cod === 200
+        && <WeatherPanelWrapper data={weatherData} /> }
     </>
   )
 };

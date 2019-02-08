@@ -1,16 +1,16 @@
 import React from 'react';
 import WeatherApi from '../Api/WeatherApi';
+import CurrentWeatherPanel from './CurrentWeatherPanel';
 
 export default props => {
-  const {data: { name: locationName, weather, sys: { country } } } = props;  
+  const { weather } = props.data;  
 
   return (
     <main
-      className="weatherPanel"
+      className="weatherPanelWrapper"
       style={{backgroundImage: `url(${WeatherApi.getImageByConditionId(weather[0].id)})`}}
     >
-      <h2>{locationName}, {country}</h2>
-      <h1>{weather[0].description}</h1>
+      <CurrentWeatherPanel data={props.data} />
     </main>
   );
 };

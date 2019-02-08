@@ -4,14 +4,15 @@ export default class WeatherApi {
 
   constructor() {
     this.endpoint = 'https://api.lichte.info/weather/?';
-    this.data = {};
   }
 
   makeCall = async params => {
+    params.units = 'metric';
     const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-    const data = await fetch(this.endpoint + queryString);
-    this.data = await data.json();
-    return this.data;
+    let data = await fetch(this.endpoint + queryString);
+    data = await data.json();
+    data.requestParams = params;
+    return data;
   }
 
   getData = _ => this.data;
