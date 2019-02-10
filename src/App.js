@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import WeatherApi from './Api/WeatherApi';
+
+import LoadingScreen from './components/LoadingScreen';
 import WeatherPanelWrapper from './components/WeatherPanelWrapper';
 
 export default _ => {
@@ -16,8 +18,9 @@ export default _ => {
 
   return (
     <>
-      { weatherData && weatherData.cod === 200
-        && <WeatherPanelWrapper data={weatherData} /> }
+      { (weatherData && weatherData.cod === 200) 
+        ? <WeatherPanelWrapper data={weatherData} /> 
+        : <LoadingScreen /> }
     </>
   )
 };

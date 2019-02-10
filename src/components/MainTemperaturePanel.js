@@ -3,7 +3,6 @@ import React from 'react'
 export default props => {
   const { temp, minTemp, maxTemp, units } = props;
   const appendTempUnits = appendUnit(units);
-  console.log(props);  
 
   return (
     <div
@@ -11,7 +10,7 @@ export default props => {
     >
       <span
         className="averageTemp"
-        dangerouslySetInnerHTML={{ __html: appendTempUnits(temp) }}
+        dangerouslySetInnerHTML={{ __html: appendTempUnits(Math.round(temp)) }}
       >
       </span>
       <span>

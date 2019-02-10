@@ -3,7 +3,9 @@ import WeatherApi from '../Api/WeatherApi';
 import CurrentWeatherPanel from './CurrentWeatherPanel';
 
 export default props => {
-  const { weather } = props.data;  
+  const { weather } = props.data;
+
+  console.log(props.data);
 
   return (
     <main
