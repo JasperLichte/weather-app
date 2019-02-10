@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getGeoLocation } from './func/func';
 import WeatherApi from './Api/WeatherApi';
 
 import LoadingScreen from './components/common/LoadingScreen';
@@ -23,19 +24,4 @@ export default _ => {
         : <LoadingScreen /> }
     </>
   )
-};
-
-const getGeoLocation = _ => {
-  return new Promise(resolve => {
-    if (!navigator.geolocation) {
-      resolve({});
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(pos => {
-      resolve({
-        lon: pos.coords.longitude,
-        lat: pos.coords.latitude,
-      });
-    });
-  });
 };
