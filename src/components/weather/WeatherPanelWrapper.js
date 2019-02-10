@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherApi from '../Api/WeatherApi';
+import WeatherApi from '../../Api/WeatherApi';
 import CurrentWeatherPanel from './CurrentWeatherPanel';
 
 export default props => {

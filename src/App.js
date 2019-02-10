@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import WeatherApi from './Api/WeatherApi';
 
-import LoadingScreen from './components/LoadingScreen';
-import WeatherPanelWrapper from './components/WeatherPanelWrapper';
+import LoadingScreen from './components/common/LoadingScreen';
+import WeatherPanelWrapper from './components/weather/WeatherPanelWrapper';
 
 export default _ => {
   const [weatherData, setWeatherData] = useState(null);
@@ -14,11 +14,11 @@ export default _ => {
       const weatherData = await weatherApi.makeCall(position);
       setWeatherData(weatherData);
     })();
-  }  
+  }
 
   return (
     <>
-      { (weatherData && weatherData.cod === 200) 
+      { (weatherData && weatherData.cod === 200)
         ? <WeatherPanelWrapper data={weatherData} /> 
         : <LoadingScreen /> }
     </>
